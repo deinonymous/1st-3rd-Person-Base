@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dj8qxtraf6qq3"]
+
+[ext_resource type="Script" path="res://scripts/state/states/player_state.gd" id="1_uepa6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_edq6b"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y670u"]
+
+[sub_resource type="Animation" id="Animation_rehxu"]
+resource_name = "fall"
+
+[sub_resource type="Animation" id="Animation_ei50w"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_d021l"]
+resource_name = "jump"
+
+[sub_resource type="Animation" id="Animation_fevwm"]
+resource_name = "run"
+
+[sub_resource type="Animation" id="Animation_prwmk"]
+resource_name = "walk"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i14f5"]
+_data = {
+"fall": SubResource("Animation_rehxu"),
+"idle": SubResource("Animation_ei50w"),
+"jump": SubResource("Animation_d021l"),
+"run": SubResource("Animation_fevwm"),
+"walk": SubResource("Animation_prwmk")
+}
+
+[node name="player" type="CharacterBody3D"]
+wall_min_slide_angle = 0.0
+script = ExtResource("1_uepa6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StateLog" type="Label" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -475.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+horizontal_alignment = 2
+
+[node name="BodyCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_edq6b")
+
+[node name="FootCast" type="ShapeCast3D" parent="."]
+shape = SubResource("SphereShape3D_y670u")
+target_position = Vector3(0, -0.55, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_i14f5")
+}

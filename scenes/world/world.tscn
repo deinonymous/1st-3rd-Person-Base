@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bujoqd1cl80v6"]
+
+[ext_resource type="PackedScene" uid="uid://dj8qxtraf6qq3" path="res://scenes/player.tscn" id="1_8h7lf"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sybux"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0ie8"]
+albedo_color = Color(1, 0, 1, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mkc1t"]
+material = SubResource("StandardMaterial3D_g0ie8")
+
+[node name="world" type="Node3D"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape3D_sybux")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_mkc1t")
+
+[node name="player" parent="." instance=ExtResource("1_8h7lf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23071, 6.16701)
