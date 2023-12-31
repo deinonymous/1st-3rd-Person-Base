@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 class_name PlayerPersistentState
 
+@onready var body: Node3D = $BodyMeshes
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var foot_cast: ShapeCast3D = $FootCast
 @onready var camera: Camera3D = $Camera3D
@@ -38,6 +39,7 @@ func _unhandled_input(event):
     camera.rotation.y -= event.relative.x/40
     camera.rotation.x -= event.relative.y/40
     camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+    body.rotation.y = camera.rotation.y
 
 func _physics_process(_delta):
   handle_input()
@@ -102,7 +104,7 @@ func change_state(new_state_name):
 
 func view_bob(_delta):
   if velocity.length() and not velocity.y:
-    bob_time += _delta * 128 * velocity.length()
+    bob_time += _delta * 120 * velocity.length()
   camera.position.y = camera_current_height + sin(bob_time) / 25
 
 func transition_camera_height(_new_height):
