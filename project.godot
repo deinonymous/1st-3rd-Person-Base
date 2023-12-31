@@ -18,6 +18,15 @@ config/features=PackedStringArray("4.1", "Forward Plus")
 
 Physics="*res://scripts/autoload/Physics.gd"
 
+[display]
+
+window/size/viewport_width=267
+window/size/viewport_height=150
+window/size/mode=3
+window/size/borderless=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+
 [dotnet]
 
 project/assembly_name="Antarctica"
@@ -73,3 +82,7 @@ main_attack={
 [physics]
 
 3d/default_gravity=0.98
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

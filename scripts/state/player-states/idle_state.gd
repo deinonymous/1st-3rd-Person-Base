@@ -3,8 +3,7 @@ extends State
 class_name IdleState
 
 func _ready():
-  animation.play("idle")
-  persistent_state.velocity = Vector3(0,0,0)
+  persistent_state.animation.play("idle")
 
 func walk():
   change_state.call("walk")
@@ -16,7 +15,10 @@ func fall():
   change_state.call("fall")
 
 func idle():
-  pass
+  persistent_state.velocity = Vector3(0,0,0)
 
 func jump():
   change_state.call("jump")
+
+func crouch():
+  change_state.call("crouch")

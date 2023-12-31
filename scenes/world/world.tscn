@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bujoqd1cl80v6"]
+[gd_scene load_steps=6 format=3 uid="uid://bujoqd1cl80v6"]
 
 [ext_resource type="PackedScene" uid="uid://dj8qxtraf6qq3" path="res://scenes/player.tscn" id="1_8h7lf"]
+[ext_resource type="PackedScene" uid="uid://bdqj3vlbfrrmt" path="res://scenes/world/box.tscn" id="2_0whr3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sybux"]
 
@@ -23,3 +24,6 @@ mesh = SubResource("PlaneMesh_mkc1t")
 
 [node name="player" parent="." instance=ExtResource("1_8h7lf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23071, 6.16701)
+safe_margin = 0.01
+
+[node name="box" parent="." instance=ExtResource("2_0whr3")]

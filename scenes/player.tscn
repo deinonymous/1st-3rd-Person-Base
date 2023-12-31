@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj8qxtraf6qq3"]
+[gd_scene load_steps=12 format=3 uid="uid://dj8qxtraf6qq3"]
 
-[ext_resource type="Script" path="res://scripts/state/states/player_state.gd" id="1_uepa6"]
+[ext_resource type="Script" path="res://scripts/state/player-states/player_persistent_state.gd" id="1_2ieie"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_edq6b"]
 
@@ -21,18 +21,26 @@ resource_name = "run"
 [sub_resource type="Animation" id="Animation_prwmk"]
 resource_name = "walk"
 
+[sub_resource type="Animation" id="Animation_cq4wc"]
+resource_name = "sneak"
+
+[sub_resource type="Animation" id="Animation_vysn6"]
+resource_name = "crouch"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i14f5"]
 _data = {
+"crouch": SubResource("Animation_vysn6"),
 "fall": SubResource("Animation_rehxu"),
 "idle": SubResource("Animation_ei50w"),
 "jump": SubResource("Animation_d021l"),
 "run": SubResource("Animation_fevwm"),
+"sneak": SubResource("Animation_cq4wc"),
 "walk": SubResource("Animation_prwmk")
 }
 
 [node name="player" type="CharacterBody3D"]
 wall_min_slide_angle = 0.0
-script = ExtResource("1_uepa6")
+script = ExtResource("1_2ieie")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
