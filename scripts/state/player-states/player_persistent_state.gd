@@ -103,11 +103,11 @@ func change_state(new_state_name):
 func view_bob(_delta):
   if velocity.length() and not velocity.y:
     bob_time += _delta * 128 * velocity.length()
-  camera.position.y = camera_current_height + sin(bob_time) / 45
+  camera.position.y = camera_current_height + sin(bob_time) / 25
 
 func transition_camera_height(_new_height):
   if _new_height != camera_current_height:
     if camera_height_tween:
       camera_height_tween.kill()
     camera_height_tween = create_tween()
-    camera_height_tween.tween_property(self, "camera_current_height", _new_height, 0.1)
+    camera_height_tween.tween_property(self, "camera_current_height", _new_height, 0.4).set_trans(Tween.TRANS_CUBIC)
