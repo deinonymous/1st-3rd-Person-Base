@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8qfa5u6hgpo4"]
+
+[ext_resource type="Texture2D" uid="uid://to1so48c4ply" path="res://textures/sNun.png" id="1_vkgnd"]
+
+[node name="nun" type="CharacterBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.05
+billboard = 2
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("1_vkgnd")
