@@ -16,11 +16,15 @@ var inertia = 0.7
 var run_speed = 0.1
 var walk_speed = 0.05
 var sneak_speed = 0.025
+var midair_correction_speed = 0.002
 var jump_velocity = 0.17
+
+#camera
 var bob_time = 0.0
 var camera_standing_height = 0.5
 var camera_crouch_height = 0.0
 var camera_current_height = camera_standing_height
+var camera_height_tween: Tween
 
 func _ready():
   Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -100,3 +104,10 @@ func view_bob(_delta):
   if velocity.length() and not velocity.y:
     bob_time += _delta * 128 * velocity.length()
   camera.position.y = camera_current_height + sin(bob_time) / 45
+
+func transition_camera_height(_new_height):
+  if _new_height != camera_current_height:
+    if camera_height_tween:
+      camera_height_tween.kill()
+    camera_height_tween = create_tween()
+    camera_height_tween.tween_property(self, "camera_current_height", _new_height, 0.1)

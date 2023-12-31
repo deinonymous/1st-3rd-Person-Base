@@ -3,12 +3,12 @@ extends State
 class_name CrouchState
 
 func _ready():
-  persistent_state.camera_current_height = persistent_state.camera_crouch_height
+  persistent_state.transition_camera_height(persistent_state.camera_crouch_height)
   persistent_state.animation.play("crouch")
   crouch()
 
 func walk():
-  persistent_state.camera_current_height = persistent_state.camera_standing_height
+  persistent_state.transition_camera_height(persistent_state.camera_standing_height)
   change_state.call("walk")
 
 func crouch():
@@ -21,11 +21,11 @@ func run():
   pass
 
 func fall():
-  persistent_state.camera_current_height = persistent_state.camera_standing_height
+  persistent_state.transition_camera_height(persistent_state.camera_standing_height)
   change_state.call("fall")
 
 func idle():
-  persistent_state.camera_current_height = persistent_state.camera_standing_height
+  persistent_state.transition_camera_height(persistent_state.camera_standing_height)
   change_state.call("idle")
 
 func jump():
