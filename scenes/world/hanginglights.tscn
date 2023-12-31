@@ -1,0 +1,146 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpcx25mxbpw5v"]
+
+[ext_resource type="Texture2D" uid="uid://bloafalo4y58n" path="res://textures/sStainedGlass.png" id="1_r67ip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gl1xm"]
+albedo_color = Color(1, 0.54902, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s4dug"]
+material = SubResource("StandardMaterial3D_gl1xm")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 5.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a2t5n"]
+material = SubResource("StandardMaterial3D_gl1xm")
+top_radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8aa2"]
+albedo_texture = ExtResource("1_r67ip")
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.25
+backlight = Color(1, 1, 1, 1)
+refraction_scale = -0.86
+detail_enabled = true
+detail_blend_mode = 1
+uv1_triplanar = true
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fyjeh"]
+material = SubResource("StandardMaterial3D_i8aa2")
+top_radius = 0.4
+bottom_radius = 0.4
+radial_segments = 8
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sghmm"]
+albedo_color = Color(1, 0.54902, 0, 1)
+metallic = 1.0
+metallic_specular = 1.0
+roughness = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_lqrht"]
+material = SubResource("StandardMaterial3D_sghmm")
+top_radius = 0.1
+height = 0.2
+
+[node name="hanginglights" type="Node3D"]
+
+[node name="hanginglight" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hanginglight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0191, 16.9406)
+mesh = SubResource("CylinderMesh_s4dug")
+skeleton = NodePath("../../../Node3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="hanginglight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.43464, 16.9406)
+mesh = SubResource("CylinderMesh_a2t5n")
+skeleton = NodePath("../../../Node3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hanginglight/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.10729, 0)
+mesh = SubResource("CylinderMesh_fyjeh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="hanginglight/MeshInstance3D2/MeshInstance3D"]
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+omni_range = 16.0
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="hanginglight"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 7.23502, 16.9406)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_lqrht")
+skeleton = NodePath("../../../Node3D")
+
+[node name="hanginglight2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5.5, -23.951)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hanginglight2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0191, 16.9406)
+mesh = SubResource("CylinderMesh_s4dug")
+skeleton = NodePath("../../../Node3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="hanginglight2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.43464, 16.9406)
+mesh = SubResource("CylinderMesh_a2t5n")
+skeleton = NodePath("../../../Node3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hanginglight2/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.10729, 0)
+mesh = SubResource("CylinderMesh_fyjeh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="hanginglight2/MeshInstance3D2/MeshInstance3D"]
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+omni_range = 16.0
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="hanginglight2"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 7.23502, 16.9406)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_a2t5n")
+skeleton = NodePath("../../../Node3D")
+
+[node name="hanginglight3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5.5, -23.951)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hanginglight3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.0191, 16.9406)
+mesh = SubResource("CylinderMesh_s4dug")
+skeleton = NodePath("../../../Node3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="hanginglight3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.43464, 16.9406)
+mesh = SubResource("CylinderMesh_a2t5n")
+skeleton = NodePath("../../../Node3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hanginglight3/MeshInstance3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.10729, 0)
+mesh = SubResource("CylinderMesh_fyjeh")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="hanginglight3/MeshInstance3D2/MeshInstance3D"]
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+shadow_enabled = true
+omni_range = 16.0
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="hanginglight3"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 7.23502, 16.9406)
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_a2t5n")
+skeleton = NodePath("../../../Node3D")

@@ -1,11 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://bujoqd1cl80v6"]
+[gd_scene load_steps=17 format=3 uid="uid://bujoqd1cl80v6"]
 
 [ext_resource type="Material" uid="uid://btkoaitsm48pr" path="res://scenes/world/stone.tres" id="1_0bw36"]
 [ext_resource type="PackedScene" uid="uid://dj8qxtraf6qq3" path="res://scenes/player.tscn" id="1_8h7lf"]
 [ext_resource type="PackedScene" uid="uid://bdqj3vlbfrrmt" path="res://scenes/world/box.tscn" id="2_0whr3"]
-[ext_resource type="PackedScene" uid="uid://dr8oum8wnxjs6" path="res://scenes/world/pew.tscn" id="4_6652w"]
+[ext_resource type="PackedScene" uid="uid://x341l1qtgdas" path="res://scenes/world/pews.tscn" id="4_vppcu"]
 [ext_resource type="PackedScene" uid="uid://bsyexfjc1ltmc" path="res://scenes/world/cross.tscn" id="5_hwihp"]
-[ext_resource type="PackedScene" uid="uid://d0f1ruyy2hqdr" path="res://scenes/world/worklight.tscn" id="5_mo2ej"]
+[ext_resource type="PackedScene" uid="uid://p76mnadj6tk8" path="res://scenes/world/walls.tscn" id="6_udcfj"]
+[ext_resource type="PackedScene" uid="uid://dpcx25mxbpw5v" path="res://scenes/world/hanginglights.tscn" id="7_48nsg"]
+[ext_resource type="PackedScene" uid="uid://dy856t755ip30" path="res://scenes/world/worklights.tscn" id="7_hyfte"]
+[ext_resource type="PackedScene" uid="uid://5k1ttj6hpbiu" path="res://scenes/world/balcony.tscn" id="8_tn0us"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_da0lb"]
 
@@ -29,48 +32,12 @@ volumetric_fog_density = 0.1
 volumetric_fog_albedo = Color(0.1875, 0.25, 0.25, 1)
 volumetric_fog_emission = Color(0.1875, 0.25, 0.25, 1)
 adjustment_enabled = true
-adjustment_saturation = 1.1
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sybux"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_mkc1t"]
 material = ExtResource("1_0bw36")
 size = Vector2(2, 4)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_sg4sx"]
-material = ExtResource("1_0bw36")
-size = Vector2(20, 40)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_h1lm0"]
-size = Vector3(20, 0.1, 40.0128)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_cj5od"]
-material = ExtResource("1_0bw36")
-size = Vector2(20, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ax7e"]
-size = Vector3(20, 0.1, 20.0899)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_70ju2"]
-albedo_color = Color(0.5, 1, 1, 1)
-metallic_specular = 1.0
-roughness = 0.0
-emission_enabled = true
-emission = Color(0.5, 1, 1, 1)
-emission_energy_multiplier = 16.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_kogdd"]
-material = SubResource("StandardMaterial3D_70ju2")
-top_radius = 5.0
-bottom_radius = 5.0
-height = 0.2
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_7a4h0"]
-material = ExtResource("1_0bw36")
-size = Vector2(20, 20)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_f25h1"]
-size = Vector3(20, 0.1, 20.0263)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apwdg"]
 albedo_color = Color(0.5, 0, 0, 1)
@@ -103,188 +70,18 @@ mesh = SubResource("PlaneMesh_mkc1t")
 
 [node name="box" parent="church" instance=ExtResource("2_0whr3")]
 
-[node name="pews" type="Node3D" parent="church"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.97818)
-
-[node name="pew" parent="church/pews" instance=ExtResource("4_6652w")]
-
-[node name="pew2" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, 10)
-
-[node name="pew3" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, 5)
-
-[node name="pew4" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, -2.53312)
-
-[node name="pew5" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, 7.46688)
-
-[node name="pew6" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, 2.46688)
-
-[node name="pew7" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, -7.46995)
-
-[node name="pew8" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, -10.0031)
-
-[node name="pew9" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.25, -5.00307)
-
-[node name="pew10" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, 0)
-
-[node name="pew11" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, 10)
-
-[node name="pew12" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, 5)
-
-[node name="pew13" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, -2.53312)
-
-[node name="pew14" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, 7.46688)
-
-[node name="pew15" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, 2.46688)
-
-[node name="pew16" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, -7.46995)
-
-[node name="pew17" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, -10.0031)
-
-[node name="pew18" parent="church/pews" instance=ExtResource("4_6652w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.98761, 0.25, -5.00307)
+[node name="pews" parent="church" instance=ExtResource("4_vppcu")]
 
 [node name="cross" parent="church" instance=ExtResource("5_hwihp")]
 
-[node name="walls" type="Node3D" parent="church"]
+[node name="walls" parent="church" instance=ExtResource("6_udcfj")]
 
-[node name="wall" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -10, 10, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall"]
-mesh = SubResource("PlaneMesh_sg4sx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall"]
-shape = SubResource("BoxShape3D_h1lm0")
-disabled = true
-
-[node name="wall3" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(-1, 1.50996e-07, 0, -1.50996e-07, -1, 0, 0, 0, 1, 0, 20, -10)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall3"]
-mesh = SubResource("PlaneMesh_cj5od")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall3"]
-shape = SubResource("BoxShape3D_2ax7e")
-disabled = true
-
-[node name="wall4" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(-1, -8.74228e-08, 0, -3.82137e-15, 4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, 30, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall4"]
-mesh = SubResource("PlaneMesh_cj5od")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall4"]
-shape = SubResource("BoxShape3D_2ax7e")
-disabled = true
-
-[node name="wall5" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 30, 20)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall5"]
-mesh = SubResource("PlaneMesh_cj5od")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall5"]
-shape = SubResource("BoxShape3D_2ax7e")
-disabled = true
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="church/walls/wall5"]
-mesh = SubResource("CylinderMesh_kogdd")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="church/walls/wall5/MeshInstance3D2"]
-transform = Transform3D(0.965926, -0.224144, -0.12941, 0, 0.5, -0.866025, 0.258819, 0.836516, 0.482963, 0, 0, 0)
-light_color = Color(0.5, 1, 1, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-shadow_enabled = true
-spot_range = 100.0
-spot_attenuation = 0.5
-spot_angle = 30.0
-
-[node name="wall6" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(0.00209452, -0.999998, 4.37113e-08, -3.82137e-15, 4.37114e-08, 1, -0.999998, -0.00209452, 9.15504e-11, 9.99998, 30, 10.0209)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall6"]
-mesh = SubResource("PlaneMesh_cj5od")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall6"]
-shape = SubResource("BoxShape3D_2ax7e")
-disabled = true
-
-[node name="wall7" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(-0.00209443, 0.999998, 4.37113e-08, 0, -4.37114e-08, 1, 0.999998, 0.00209443, 9.15504e-11, -9.99998, 30, 9.97906)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall7"]
-mesh = SubResource("PlaneMesh_cj5od")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall7"]
-shape = SubResource("BoxShape3D_2ax7e")
-disabled = true
-
-[node name="wall2" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 10, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall2"]
-mesh = SubResource("PlaneMesh_sg4sx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall2"]
-shape = SubResource("BoxShape3D_h1lm0")
-disabled = true
-
-[node name="wall8" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 10, 10, -20)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-mesh = SubResource("PlaneMesh_7a4h0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.38543e-07, -10.0327)
-shape = SubResource("BoxShape3D_f25h1")
-disabled = true
-
-[node name="wall9" type="StaticBody3D" parent="church/walls"]
-transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -10, 10, 20)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
-mesh = SubResource("PlaneMesh_7a4h0")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.38543e-07, -10.0327)
-shape = SubResource("BoxShape3D_f25h1")
-disabled = true
-
-[node name="worklights" type="Node3D" parent="church"]
-
-[node name="worklight" parent="church/worklights" instance=ExtResource("5_mo2ej")]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -9.5186, 0, -9.36152)
-
-[node name="worklight2" parent="church/worklights" instance=ExtResource("5_mo2ej")]
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 9.18368, 0, -8.59925)
-
-[node name="worklight3" parent="church/worklights" instance=ExtResource("5_mo2ej")]
-transform = Transform3D(-0.777409, 0, -0.628995, 0, 1, 0, 0.628995, 0, -0.777409, 9.12863, 0, 14.6134)
-
-[node name="worklight4" parent="church/worklights" instance=ExtResource("5_mo2ej")]
-transform = Transform3D(-0.628994, 0, 0.777409, 0, 1, 0, -0.777409, 0, -0.628994, -9.46355, 0, 14.9158)
+[node name="worklights" parent="church" instance=ExtResource("7_hyfte")]
 
 [node name="rug" type="MeshInstance3D" parent="church"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 5)
 mesh = SubResource("PlaneMesh_2ih1k")
+
+[node name="Node3D" parent="church" instance=ExtResource("8_tn0us")]
+
+[node name="hanginglights" parent="church" instance=ExtResource("7_48nsg")]

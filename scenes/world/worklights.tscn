@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy856t755ip30"]
+
+[ext_resource type="PackedScene" uid="uid://d0f1ruyy2hqdr" path="res://scenes/world/worklight.tscn" id="1_flu7m"]
+
+[node name="worklights" type="Node3D"]
+
+[node name="worklight" parent="." instance=ExtResource("1_flu7m")]
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, -9.5186, 0, -9.36152)
+
+[node name="worklight2" parent="." instance=ExtResource("1_flu7m")]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 9.18368, 0, -8.59925)
+
+[node name="worklight3" parent="." instance=ExtResource("1_flu7m")]
+transform = Transform3D(-0.777409, 0, -0.628995, 0, 1, 0, 0.628995, 0, -0.777409, 9.12863, 0, 14.6134)
+
+[node name="worklight4" parent="." instance=ExtResource("1_flu7m")]
+transform = Transform3D(-0.628994, 0, 0.777409, 0, 1, 0, -0.777409, 0, -0.628994, -9.46355, 0, 14.9158)
