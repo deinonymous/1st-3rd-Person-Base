@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bujoqd1cl80v6"]
+[gd_scene load_steps=22 format=3 uid="uid://bujoqd1cl80v6"]
 
 [ext_resource type="Material" uid="uid://btkoaitsm48pr" path="res://scenes/world/stone.tres" id="1_0bw36"]
 [ext_resource type="PackedScene" uid="uid://dj8qxtraf6qq3" path="res://scenes/player.tscn" id="1_8h7lf"]
@@ -64,6 +64,13 @@ material = SubResource("StandardMaterial3D_70ju2")
 top_radius = 5.0
 bottom_radius = 5.0
 height = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7a4h0"]
+material = ExtResource("1_0bw36")
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f25h1"]
+size = Vector3(20, 0.1, 20.0263)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apwdg"]
 albedo_color = Color(0.5, 0, 0, 1)
@@ -240,6 +247,30 @@ mesh = SubResource("PlaneMesh_sg4sx")
 shape = SubResource("BoxShape3D_h1lm0")
 disabled = true
 
+[node name="wall8" type="StaticBody3D" parent="church/walls"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 10, 10, -20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+mesh = SubResource("PlaneMesh_7a4h0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.38543e-07, -10.0327)
+shape = SubResource("BoxShape3D_f25h1")
+disabled = true
+
+[node name="wall9" type="StaticBody3D" parent="church/walls"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -10, 10, 20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="church/walls/wall9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+mesh = SubResource("PlaneMesh_7a4h0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="church/walls/wall9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.38543e-07, -10.0327)
+shape = SubResource("BoxShape3D_f25h1")
+disabled = true
+
 [node name="worklights" type="Node3D" parent="church"]
 
 [node name="worklight" parent="church/worklights" instance=ExtResource("5_mo2ej")]
@@ -254,6 +285,6 @@ transform = Transform3D(-0.777409, 0, -0.628995, 0, 1, 0, 0.628995, 0, -0.777409
 [node name="worklight4" parent="church/worklights" instance=ExtResource("5_mo2ej")]
 transform = Transform3D(-0.628994, 0, 0.777409, 0, 1, 0, -0.777409, 0, -0.628994, -9.46355, 0, 14.9158)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="church"]
+[node name="rug" type="MeshInstance3D" parent="church"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 5)
 mesh = SubResource("PlaneMesh_2ih1k")
