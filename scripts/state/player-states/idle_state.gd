@@ -15,7 +15,7 @@ func fall():
   change_state.call("fall")
 
 func idle():
-  persistent_state.velocity = Vector3(0,0,0)
+  persistent_state.velocity *= 0.4
 
 func jump():
   change_state.call("jump")

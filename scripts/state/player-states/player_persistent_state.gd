@@ -36,10 +36,10 @@ func _unhandled_input(event):
   #handle camera rotation
 
   if event is InputEventMouseMotion:
-	camera.rotation.y -= event.relative.x/40
-	camera.rotation.x -= event.relative.y/40
-	camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
-	body.rotation.y = camera.rotation.y
+    camera.rotation.y -= event.relative.x/40
+    camera.rotation.x -= event.relative.y/40
+    camera.rotation.x = clampf(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+    body.rotation.y = camera.rotation.y
 
 func _physics_process(_delta):
   handle_input()
@@ -55,29 +55,29 @@ func handle_input():
 
   #fall if not on the ground
   if !foot_cast.get_collision_count() and velocity.y <= 0:
-	state.fall()
-	return
+    state.fall()
+    return
 
   #handle jump
   if Input.is_action_just_pressed("jump") or state is JumpState:
-	state.jump()
-	return
+    state.jump()
+    return
 
   #handle crouch/sneak
   if Input.is_action_pressed("crouch"):
-	if direction:
-	  state.sneak()
-	  return
-	state.crouch()
-	return
+    if direction:
+      state.sneak()
+      return
+    state.crouch()
+    return
 
   #handle plain movement
   if direction:
-	if Input.is_action_pressed("sprint"):
-	  state.run()
-	  return
-	state.walk()
-	return
+    if Input.is_action_pressed("sprint"):
+      state.run()
+      return
+    state.walk()
+    return
 
   #otherwise, player is idle
   state.idle()
@@ -88,7 +88,7 @@ func change_state(new_state_name):
 
   #remove any previous state
   if state != null:
-	state.queue_free()
+    state.queue_free()
 
   #instantiate target state by looking up its name in the state factory
   state = state_factory.get_state(new_state_name).new()
@@ -104,12 +104,12 @@ func change_state(new_state_name):
 
 func view_bob(_delta):
   if velocity.length() and not velocity.y:
-	bob_time += _delta * 120 * velocity.length()
-  camera.position.y = camera_current_height + sin(bob_time) / 25
+    bob_time += _delta * 120 * velocity.length()
+    camera.position.y = camera_current_height + sin(bob_time) / 25
 
 func transition_camera_height(_new_height):
   if _new_height != camera_current_height:
-	if camera_height_tween:
-	  camera_height_tween.kill()
-	camera_height_tween = create_tween()
-	camera_height_tween.tween_property(self, "camera_current_height", _new_height, 0.4).set_trans(Tween.TRANS_CUBIC)
+    if camera_height_tween:
+      camera_height_tween.kill()
+    camera_height_tween = create_tween()
+    camera_height_tween.tween_property(self, "camera_current_height", _new_height, 0.4).set_trans(Tween.TRANS_CUBIC)
