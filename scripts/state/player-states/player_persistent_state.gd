@@ -104,7 +104,7 @@ func change_state(new_state_name):
 
 func view_bob(_delta):
   if velocity.length() and not velocity.y:
-    bob_time += _delta * 120 * velocity.length()
+    bob_time += _delta * 180 * velocity.length()
     camera.position.y = camera_current_height + sin(bob_time) / 25
 
 func transition_camera_height(_new_height):

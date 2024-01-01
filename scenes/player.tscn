@@ -89,7 +89,7 @@ resource_name = "sneak"
 
 [sub_resource type="Animation" id="Animation_prwmk"]
 resource_name = "walk"
-length = 2.0
+length = 1.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -98,7 +98,7 @@ tracks/0/path = NodePath("BodyMeshes/TorsoMesh/ShoulderJointR:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.523599, 0, 0), Vector3(0, 0, 0), Vector3(-0.523599, 0, 0)]
@@ -110,7 +110,7 @@ tracks/1/path = NodePath("BodyMeshes/TorsoMesh/ShoulderJointL:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.523599, 0, 0), Vector3(0, 0, 0), Vector3(0.523599, 0, 0)]
@@ -122,7 +122,7 @@ tracks/2/path = NodePath("BodyMeshes/TorsoMesh/HipJointL:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0.523599, 0, 0), Vector3(0, 0, 0), Vector3(-0.523599, 0, 0)]
@@ -134,7 +134,7 @@ tracks/3/path = NodePath("BodyMeshes/TorsoMesh/HipJointR:rotation")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.523599, 0, 0), Vector3(0, 0, 0), Vector3(0.523599, 0, 0)]
@@ -186,7 +186,7 @@ transform = Transform3D(1, 0, 0, 0, 0.996195, 0.0871557, 0, -0.0871557, 0.996195
 mesh = SubResource("CylinderMesh_rs64f")
 
 [node name="ShoulderJointR" type="Node3D" parent="BodyMeshes/TorsoMesh"]
-transform = Transform3D(1, 0, 0, 0, 0.87591, 0.482474, 0, -0.482474, 0.87591, 0.214, 0.183, 0.016)
+transform = Transform3D(1, 0, 0, 0, 0.88338, 0.468657, 0, -0.468657, 0.88338, 0.214, 0.183, 0.016)
 
 [node name="UpperArmR" type="MeshInstance3D" parent="BodyMeshes/TorsoMesh/ShoulderJointR"]
 transform = Transform3D(0.942859, -0.331869, 0.0296658, 0.320165, 0.927051, 0.195122, -0.0922566, -0.174475, 0.980331, -0.0180326, -0.160171, 0.0200235)
@@ -196,7 +196,7 @@ mesh = SubResource("CapsuleMesh_bijq0")
 transform = Transform3D(1, -5.58794e-09, 0, 3.72529e-09, 1, -1.49012e-08, 0, 0, 1, -0.00798053, -0.162114, -0.0085054)
 
 [node name="ShoulderJointL" type="Node3D" parent="BodyMeshes/TorsoMesh"]
-transform = Transform3D(1, 0, 0, 0, 0.87591, -0.482474, 0, 0.482474, 0.87591, -0.214, 0.183, 0.016)
+transform = Transform3D(1, 0, 0, 0, 0.88338, -0.468657, 0, 0.468657, 0.88338, -0.214, 0.183, 0.016)
 
 [node name="UpperArmL2" type="MeshInstance3D" parent="BodyMeshes/TorsoMesh/ShoulderJointL"]
 transform = Transform3D(0.942554, 0.332782, 0.0291147, -0.331869, 0.922874, 0.195369, 0.0381462, -0.193808, 0.980298, 0.018, -0.16, 0.02)
@@ -207,14 +207,14 @@ skeleton = NodePath("../../ShoulderJointR")
 transform = Transform3D(0.778924, -0.627118, 0.000602655, 0.627118, 0.778924, -5.07236e-05, -0.000437692, 0.000417262, 1, 0.008, -0.162, -0.009)
 
 [node name="HipJointL" type="Node3D" parent="BodyMeshes/TorsoMesh"]
-transform = Transform3D(1, 0, 0, 0, 0.87591, 0.482474, 0, -0.482474, 0.87591, -0.121, -0.208, 0.018)
+transform = Transform3D(1, 0, 0, 0, 0.88338, 0.468657, 0, -0.468657, 0.88338, -0.121, -0.208, 0.018)
 
 [node name="ThighL" type="MeshInstance3D" parent="BodyMeshes/TorsoMesh/HipJointL"]
 transform = Transform3D(0.995686, 0.0876278, 0.0305041, -0.0778839, 0.968007, -0.238534, -0.0504303, 0.235129, 0.970655, 0.01, -0.157, -0.014)
 mesh = SubResource("CapsuleMesh_mtugf")
 
 [node name="HipJointR" type="Node3D" parent="BodyMeshes/TorsoMesh"]
-transform = Transform3D(1, 0, 0, 0, 0.87591, -0.482474, 0, 0.482474, 0.87591, 0.120809, -0.207552, -0.0181584)
+transform = Transform3D(1, 0, 0, 0, 0.88338, -0.468657, 0, 0.468657, 0.88338, 0.120809, -0.207552, -0.0181584)
 
 [node name="ThighR" type="MeshInstance3D" parent="BodyMeshes/TorsoMesh/HipJointR"]
 transform = Transform3D(0.996887, -0.0730511, 0.0296658, 0.0780409, 0.96781, -0.239278, -0.0112314, 0.240848, 0.970498, -0.0100828, -0.157213, -0.0137544)
