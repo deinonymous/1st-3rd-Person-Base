@@ -8,16 +8,16 @@ func _ready():
   run()
 
 func run():
-  var direction = Input.get_vector("mv_left", "mv_right", "mv_forward", "mv_backward").rotated(-persistent_state.camera.rotation.y)
+  persistent_state.animation.speed_scale = (-1 if persistent_state.direction.y < 0 else 1) * persistent_state.velocity.length() * 25
   persistent_state.velocity.x = clampf(
-    direction.x * persistent_state.run_speed,
-    persistent_state.velocity.x - abs(direction.x * persistent_state.run_speed / 5),
-    persistent_state.velocity.x + abs(direction.x * persistent_state.run_speed / 5)
+    persistent_state.direction.x * persistent_state.run_speed,
+    persistent_state.velocity.x - abs(persistent_state.direction.x * persistent_state.run_speed / 5),
+    persistent_state.velocity.x + abs(persistent_state.direction.x * persistent_state.run_speed / 5)
   )
   persistent_state.velocity.z = clampf(
-    direction.y * persistent_state.run_speed,
-    persistent_state.velocity.z - abs(direction.y * persistent_state.run_speed / 5),
-    persistent_state.velocity.z + abs(direction.y * persistent_state.run_speed / 5)
+    persistent_state.direction.y * persistent_state.run_speed,
+    persistent_state.velocity.z - abs(persistent_state.direction.y * persistent_state.run_speed / 5),
+    persistent_state.velocity.z + abs(persistent_state.direction.y * persistent_state.run_speed / 5)
   )
 
 

@@ -4,6 +4,7 @@ class_name IdleState
 var classname = "IdleState"
 
 func _ready():
+  persistent_state.animation.speed_scale = 1
   persistent_state.animation.play("idle")
 
 func walk():

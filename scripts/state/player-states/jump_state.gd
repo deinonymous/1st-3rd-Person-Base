@@ -9,15 +9,14 @@ func _ready():
   jump()
 
 func jump():
-  var direction = Input.get_vector("mv_left", "mv_right", "mv_forward", "mv_backward").rotated(-persistent_state.camera.rotation.y)
-  if direction:
+  if persistent_state.direction:
     persistent_state.velocity.x = clampf(
-      persistent_state.velocity.x + direction.x * persistent_state.midair_correction_speed,
+      persistent_state.velocity.x + persistent_state.direction.x * persistent_state.midair_correction_speed,
       -persistent_state.run_speed,
       persistent_state.run_speed
     )
     persistent_state.velocity.z = clampf(
-      persistent_state.velocity.z + direction.y * persistent_state.midair_correction_speed,
+      persistent_state.velocity.z + persistent_state.direction.y * persistent_state.midair_correction_speed,
       -persistent_state.run_speed,
       persistent_state.run_speed
     )
