@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dpcx25mxbpw5v" path="res://scenes/world/hanginglights.tscn" id="7_48nsg"]
 [ext_resource type="PackedScene" uid="uid://dy856t755ip30" path="res://scenes/world/worklights.tscn" id="7_hyfte"]
 [ext_resource type="PackedScene" uid="uid://5k1ttj6hpbiu" path="res://scenes/world/balcony.tscn" id="8_tn0us"]
-[ext_resource type="PackedScene" path="res://scenes/nun.tscn" id="10_jakpv"]
+[ext_resource type="PackedScene" uid="uid://b8qfa5u6hgpo4" path="res://scenes/nun.tscn" id="10_jakpv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_da0lb"]
 
