@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bujoqd1cl80v6"]
+[gd_scene load_steps=19 format=3 uid="uid://bujoqd1cl80v6"]
 
 [ext_resource type="Material" uid="uid://btkoaitsm48pr" path="res://scenes/world/stone.tres" id="1_0bw36"]
 [ext_resource type="PackedScene" uid="uid://dj8qxtraf6qq3" path="res://scenes/player.tscn" id="1_8h7lf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dy856t755ip30" path="res://scenes/world/worklights.tscn" id="7_hyfte"]
 [ext_resource type="PackedScene" uid="uid://5k1ttj6hpbiu" path="res://scenes/world/balcony.tscn" id="8_tn0us"]
 [ext_resource type="PackedScene" uid="uid://b8qfa5u6hgpo4" path="res://scenes/nun.tscn" id="10_jakpv"]
+[ext_resource type="PackedScene" uid="uid://gwlys0n4bwj1" path="res://scenes/world/altar.tscn" id="10_r52s2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_da0lb"]
 
@@ -20,7 +21,7 @@ sky_material = SubResource("ProceduralSkyMaterial_da0lb")
 background_mode = 2
 sky = SubResource("Sky_27hc8")
 ambient_light_source = 3
-ambient_light_color = Color(0.5, 0.5, 0.5, 1)
+ambient_light_color = Color(0.25, 0.5, 0.5, 1)
 tonemap_mode = 2
 tonemap_exposure = 1.5
 tonemap_white = 16.0
@@ -28,10 +29,16 @@ ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
 glow_enabled = true
+fog_light_color = Color(1, 1, 1, 1)
+fog_density = 0.0776
+fog_height = 387.46
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.1
-volumetric_fog_albedo = Color(0.1875, 0.25, 0.25, 1)
-volumetric_fog_emission = Color(0.1875, 0.25, 0.25, 1)
+volumetric_fog_albedo = Color(0.25, 0.5, 0.5, 1)
+volumetric_fog_emission = Color(0.25, 0.5, 0.5, 1)
+volumetric_fog_emission_energy = 4.0
+volumetric_fog_anisotropy = 0.1
+volumetric_fog_detail_spread = 1.0
+volumetric_fog_sky_affect = 0.5
 adjustment_enabled = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_sybux"]
@@ -80,12 +87,14 @@ mesh = SubResource("PlaneMesh_mkc1t")
 [node name="worklights" parent="church" instance=ExtResource("7_hyfte")]
 
 [node name="rug" type="MeshInstance3D" parent="church"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0169052, 5)
 mesh = SubResource("PlaneMesh_2ih1k")
 
 [node name="Node3D" parent="church" instance=ExtResource("8_tn0us")]
 
 [node name="hanginglights" parent="church" instance=ExtResource("7_48nsg")]
+
+[node name="altar" parent="church" instance=ExtResource("10_r52s2")]
 
 [node name="nun" parent="." instance=ExtResource("10_jakpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.896495, -10.1707)
