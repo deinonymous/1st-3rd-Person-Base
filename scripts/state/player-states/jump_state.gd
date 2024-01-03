@@ -1,6 +1,7 @@
 extends State
 
 class_name JumpState
+var classname = "JumpState"
 
 func _ready():
   persistent_state.animation.play("jump")
@@ -30,11 +31,11 @@ func jump():
 func fall():
   change_state.call("fall")
 
-func walk():
+#func walk():
+#  pass
+
+#func run():
   pass
 
-func run():
-  pass
-
-func idle():
-  pass
+#func idle():
+#  pass

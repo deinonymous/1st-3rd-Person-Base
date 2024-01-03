@@ -11,6 +11,7 @@ class_name PlayerPersistentState
 #state
 var state
 var state_factory
+var state_changed: bool
 
 #physics/motion
 var inertia = 0.7
@@ -42,6 +43,7 @@ func _unhandled_input(event):
     body.rotation.y = camera.rotation.y
 
 func _physics_process(_delta):
+  state_changed = false
   handle_input()
   move_and_collide(velocity)
   move_and_slide()
@@ -55,33 +57,26 @@ func handle_input():
 
   #fall if not on the ground
   if !foot_cast.get_collision_count() and velocity.y <= 0:
-    state.fall()
-    return
+    state.do_state("fall")
 
   #handle jump
   if Input.is_action_just_pressed("jump") or state is JumpState:
-    state.jump()
-    return
+    state.do_state("jump")
 
   #handle crouch/sneak
   if Input.is_action_pressed("crouch"):
     if direction:
-      state.sneak()
-      return
-    state.crouch()
-    return
+      state.do_state("sneak")
+    state.do_state("crouch")
 
   #handle plain movement
   if direction:
     if Input.is_action_pressed("sprint"):
-      state.run()
-      return
-    state.walk()
-    return
+      state.do_state("run")
+    state.do_state("walk")
 
   #otherwise, player is idle
-  state.idle()
-  return
+  state.do_state("idle")
 
 func change_state(new_state_name):
   #set the new state by name
@@ -106,6 +101,9 @@ func view_bob(_delta):
   if velocity.length() and not velocity.y:
     bob_time += _delta * 180 * velocity.length()
     camera.position.y = camera_current_height + sin(bob_time) / 25
+  elif abs(camera.position.y-camera_current_height) != camera_current_height:
+    camera.position.y = camera_current_height
+    bob_time = 0
 
 func transition_camera_height(_new_height):
   if _new_height != camera_current_height:

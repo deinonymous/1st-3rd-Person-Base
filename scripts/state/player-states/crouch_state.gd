@@ -1,6 +1,7 @@
 extends State
 
 class_name CrouchState
+var classname = "CrouchState"
 
 func _ready():
   persistent_state.transition_camera_height(persistent_state.camera_crouch_height)
@@ -17,8 +18,8 @@ func crouch():
 func sneak():
   change_state.call("sneak")
 
-func run():
-  pass
+#func run():
+#  pass
 
 func fall():
   persistent_state.transition_camera_height(persistent_state.camera_standing_height)
@@ -28,5 +29,5 @@ func idle():
   persistent_state.transition_camera_height(persistent_state.camera_standing_height)
   change_state.call("idle")
 
-func jump():
-  pass
+#func jump():
+#  pass

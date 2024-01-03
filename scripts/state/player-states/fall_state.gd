@@ -1,6 +1,7 @@
 extends State
 
 class_name FallState
+var classname = "FallState"
 
 func _ready():
   persistent_state.animation.play("fall")
