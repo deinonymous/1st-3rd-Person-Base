@@ -1,0 +1,150 @@
+[gd_scene load_steps=18 format=3 uid="uid://gwlys0n4bwj1"]
+
+[ext_resource type="Material" uid="uid://btkoaitsm48pr" path="res://scenes/world/stone.tres" id="1_olrt1"]
+[ext_resource type="Material" uid="uid://c4u61q6mctmja" path="res://scenes/world/bronze.tres" id="2_136tr"]
+[ext_resource type="PackedScene" uid="uid://dyantceyrpp5k" path="res://scenes/world/bible.tscn" id="3_a6xfp"]
+[ext_resource type="PackedScene" uid="uid://83g3cvcy57ro" path="res://scenes/world/barrier.tscn" id="4_hy62m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ccl5"]
+material = ExtResource("1_olrt1")
+size = Vector3(5, 0.2, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_42ecq"]
+material = ExtResource("1_olrt1")
+size = Vector3(4.5, 0.2, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nwohp"]
+material = ExtResource("1_olrt1")
+size = Vector3(4, 0.2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vf6jl"]
+material = ExtResource("1_olrt1")
+size = Vector3(0.2, 0.5, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rhiuj"]
+material = ExtResource("1_olrt1")
+size = Vector3(1.3, 0.2, 0.8)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ow7dj"]
+material = ExtResource("2_136tr")
+top_radius = 0.05
+bottom_radius = 0.04
+height = 0.1
+cap_top = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttwue"]
+albedo_color = Color(0.2, 0, 0.0333334, 1)
+roughness = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8us5a"]
+material = SubResource("StandardMaterial3D_ttwue")
+top_radius = 0.047
+bottom_radius = 0.037
+height = 0.07
+cap_bottom = false
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_j4a1v"]
+material = ExtResource("2_136tr")
+top_radius = 0.01
+bottom_radius = 0.02
+height = 0.05
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nt2kb"]
+material = ExtResource("2_136tr")
+top_radius = 0.02
+bottom_radius = 0.05
+height = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_apwdg"]
+albedo_color = Color(0.5, 0, 0, 1)
+metallic_specular = 0.1
+roughness = 0.9
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ff27g"]
+material = SubResource("StandardMaterial3D_apwdg")
+size = Vector2(0.5, 1.301)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2agcq"]
+material = SubResource("StandardMaterial3D_apwdg")
+size = Vector2(0.5, 0.5)
+
+[node name="altar" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.0584)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0999761, 0.562144)
+mesh = SubResource("BoxMesh_8ccl5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.562)
+mesh = SubResource("BoxMesh_42ecq")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.562)
+mesh = SubResource("BoxMesh_nwohp")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470626, 0.8, 0.418931)
+mesh = SubResource("BoxMesh_vf6jl")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529374, 0.8, 0.418931)
+mesh = SubResource("BoxMesh_vf6jl")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470626, 0.8, 0.918931)
+mesh = SubResource("BoxMesh_vf6jl")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.529374, 0.8, 0.918931)
+mesh = SubResource("BoxMesh_vf6jl")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 1.1, 0.673)
+mesh = SubResource("BoxMesh_rhiuj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168253, -0.0287924, -0.0322161)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.430797, 0.248532, -0.0530386)
+mesh = SubResource("CylinderMesh_ow7dj")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.430797, 0.234591, -0.0530386)
+mesh = SubResource("CylinderMesh_8us5a")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.430797, 0.174164, -0.0530386)
+mesh = SubResource("CylinderMesh_j4a1v")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D8/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.430797, 0.139222, -0.0530386)
+mesh = SubResource("CylinderMesh_nt2kb")
+skeleton = NodePath("../..")
+
+[node name="bible" parent="MeshInstance3D8" instance=ExtResource("3_a6xfp")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 0.217208, 0.126246, 0.0590267)
+
+[node name="rug2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.02, 1.201, 0.65)
+mesh = SubResource("PlaneMesh_ff27g")
+skeleton = NodePath("../..")
+
+[node name="rug3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0.670271, 0.951033, 0.65)
+mesh = SubResource("PlaneMesh_2agcq")
+skeleton = NodePath("../..")
+
+[node name="rug4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.19249e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 1.19249e-08, -5.21253e-16, -0.630371, 0.951033, 0.65)
+mesh = SubResource("PlaneMesh_2agcq")
+skeleton = NodePath("../..")
+
+[node name="barrier" parent="." instance=ExtResource("4_hy62m")]
+
+[node name="barrier2" parent="." instance=ExtResource("4_hy62m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.189096, 0, -0.211772)
