@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bujoqd1cl80v6"]
+[gd_scene load_steps=20 format=3 uid="uid://bujoqd1cl80v6"]
 
 [ext_resource type="Material" uid="uid://btkoaitsm48pr" path="res://scenes/world/stone.tres" id="1_0bw36"]
 [ext_resource type="PackedScene" uid="uid://dj8qxtraf6qq3" path="res://scenes/player.tscn" id="1_8h7lf"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://5k1ttj6hpbiu" path="res://scenes/world/balcony.tscn" id="8_tn0us"]
 [ext_resource type="PackedScene" uid="uid://b8qfa5u6hgpo4" path="res://scenes/nun.tscn" id="10_jakpv"]
 [ext_resource type="PackedScene" uid="uid://gwlys0n4bwj1" path="res://scenes/world/altar.tscn" id="10_r52s2"]
+[ext_resource type="Texture2D" uid="uid://cx0lca56yre6k" path="res://textures/sOrangeLichen.png" id="11_4kejo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_da0lb"]
 
@@ -95,6 +96,70 @@ mesh = SubResource("PlaneMesh_2ih1k")
 [node name="hanginglights" parent="church" instance=ExtResource("7_48nsg")]
 
 [node name="altar" parent="church" instance=ExtResource("10_r52s2")]
+
+[node name="lichen" type="Sprite3D" parent="church"]
+transform = Transform3D(0.723534, -0.690289, 8.23162e-09, 0, 1.19249e-08, 1, -0.690289, -0.723534, 8.62805e-09, 6.23349, 0.00160861, -15.6473)
+modulate = Color(1, 0.55, 0, 1)
+pixel_size = 0.2
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4kejo")
+
+[node name="lichen2" type="Sprite3D" parent="church"]
+transform = Transform3D(-0.883872, -0.467729, 5.57762e-09, 0, 1.19249e-08, 1, -0.467729, 0.883872, -1.05401e-08, 6.23349, 0.00615871, -15.6473)
+modulate = Color(1, 0.55, 0, 1)
+pixel_size = 0.15
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4kejo")
+
+[node name="lichen7" type="Sprite3D" parent="church"]
+transform = Transform3D(0.980969, -0.194166, 0, 0.194166, 0.980969, 0, 0, 0, 1, -5.61712, 3.50924, -19.9997)
+modulate = Color(1, 0.55, 0, 1)
+pixel_size = 0.2
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4kejo")
+
+[node name="lichen8" type="Sprite3D" parent="church"]
+transform = Transform3D(0.766515, 0.642226, 0, -0.642226, 0.766515, 0, 0, 0, 1, -5.63376, 3.50924, -19.9821)
+modulate = Color(1, 0.55, 0, 1)
+pixel_size = 0.15
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4kejo")
+
+[node name="lichen3" type="Sprite3D" parent="church"]
+transform = Transform3D(-0.883872, -0.467729, 5.57762e-09, 0, 1.19249e-08, 1, -0.467729, 0.883872, -1.05401e-08, -5.06201, 0.00160861, 5.21839)
+modulate = Color(1, 0.55, 0, 1)
+pixel_size = 0.2
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4kejo")
+
+[node name="lichen6" type="Sprite3D" parent="church"]
+transform = Transform3D(-0.592955, 0.805236, -9.60234e-09, -3.08577e-18, 1.19249e-08, 1, 0.805236, 0.592955, -7.07092e-09, -5.06201, 0.0204934, 5.21839)
+modulate = Color(1, 0.55, 0, 1)
+pixel_size = 0.15
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4kejo")
+
+[node name="lichen4" type="Sprite3D" parent="church"]
+transform = Transform3D(-4.2222e-08, -1.13133e-08, -1, -0.258819, 0.965926, 0, 0.965926, 0.258819, -4.37114e-08, 9.99443, 6.43824, -1.44892)
+modulate = Color(1, 0.55, 0, 1)
+pixel_size = 0.2
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4kejo")
+
+[node name="lichen5" type="Sprite3D" parent="church"]
+transform = Transform3D(-4.2222e-08, -1.13133e-08, -1, 0.559916, 0.828549, -3.30144e-08, 0.828549, -0.559916, -2.86484e-08, 9.94434, 6.43824, -1.44892)
+modulate = Color(1, 0.55, 0, 1)
+pixel_size = 0.15
+shaded = true
+texture_filter = 0
+texture = ExtResource("11_4kejo")
 
 [node name="nun" parent="." instance=ExtResource("10_jakpv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.896495, -10.1707)
