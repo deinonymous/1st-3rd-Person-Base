@@ -63,7 +63,7 @@ size = Vector2(2, 30)
 environment = SubResource("Environment_muefj")
 
 [node name="player" parent="." instance=ExtResource("1_8h7lf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.23071, 11.8114)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 1.23071, 11.8114)
 safe_margin = 0.01
 
 [node name="church" type="Node3D" parent="."]
