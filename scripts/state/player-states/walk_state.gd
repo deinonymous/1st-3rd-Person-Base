@@ -8,17 +8,18 @@ func _ready():
   walk()
 
 func walk():
-  persistent_state.animation.speed_scale = (-1 if persistent_state.direction.y < 0 else 1) * persistent_state.velocity.length() * 25
+  persistent_state.animation.speed_scale = (-1 if persistent_state.input_direction.y > 0 else 1) * persistent_state.velocity.length() * 25
   persistent_state.velocity.x = clampf(
     persistent_state.direction.x * persistent_state.walk_speed,
-    persistent_state.velocity.x - abs(persistent_state.direction.x * persistent_state.walk_speed / 10),
-    persistent_state.velocity.x + abs(persistent_state.direction.x * persistent_state.walk_speed / 10)
+    persistent_state.velocity.x - (0.1 + abs(persistent_state.direction.x * persistent_state.walk_speed / 10)),
+    persistent_state.velocity.x + (0.1 + abs(persistent_state.direction.x * persistent_state.walk_speed / 10))
   )
   persistent_state.velocity.z = clampf(
     persistent_state.direction.y * persistent_state.walk_speed,
-    persistent_state.velocity.z - abs(persistent_state.direction.y * persistent_state.walk_speed / 10),
-    persistent_state.velocity.z + abs(persistent_state.direction.y * persistent_state.walk_speed / 10)
+    persistent_state.velocity.z - (0.1 + abs(persistent_state.direction.y * persistent_state.walk_speed / 10)),
+    persistent_state.velocity.z + (0.1 + abs(persistent_state.direction.y * persistent_state.walk_speed / 10))
   )
+  persistent_state.face_movement_direction()
 
 func run():
   change_state.call("run")

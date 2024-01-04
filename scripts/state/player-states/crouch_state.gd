@@ -4,6 +4,7 @@ class_name CrouchState
 var classname = "CrouchState"
 
 func _ready():
+  persistent_state.animation.speed_scale = 1
   persistent_state.animation.play("crouch")
   crouch()
 

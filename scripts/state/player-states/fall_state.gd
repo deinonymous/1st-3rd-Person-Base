@@ -4,6 +4,7 @@ class_name FallState
 var classname = "FallState"
 
 func _ready():
+  persistent_state.animation.speed_scale = 1
   persistent_state.animation.play("fall")
   fall()
 

@@ -1,16 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://dj8qxtraf6qq3"]
+[gd_scene load_steps=29 format=3 uid="uid://dj8qxtraf6qq3"]
 
 [ext_resource type="Script" path="res://scripts/state/player-states/player_persistent_state.gd" id="1_2ieie"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_edq6b"]
 radius = 0.375
-height = 1.1
+height = 1.44
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_y670u"]
 radius = 0.375
 
 [sub_resource type="BoxMesh" id="BoxMesh_3akj7"]
-size = Vector3(0.3, 0.5, 0.15)
+size = Vector3(0.25, 0.455, 0.15)
 
 [sub_resource type="SphereMesh" id="SphereMesh_d7082"]
 radius = 0.09
@@ -50,8 +50,8 @@ radial_segments = 6
 rings = 2
 
 [sub_resource type="SphereMesh" id="SphereMesh_scfp1"]
-radius = 0.1
-height = 0.2
+radius = 0.06
+height = 0.14
 radial_segments = 5
 rings = 2
 
@@ -86,72 +86,297 @@ height = 0.06
 radial_segments = 8
 rings = 2
 
-[sub_resource type="Animation" id="Animation_vysn6"]
-resource_name = "crouch"
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0ut1a"]
+radius = 0.07
+height = 0.215
+radial_segments = 5
+rings = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qpt3f"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.858824, 0.858824, 0.858824, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cowub"]
+material = SubResource("StandardMaterial3D_qpt3f")
+radius = 0.12
+height = 0.28
+radial_segments = 7
+rings = 1
+
+[sub_resource type="Animation" id="Animation_vrsqv"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BodyMeshes/Head/Camera3D:position")
+tracks/0/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.002, 0.09, 0.062)]
+"values": [Vector3(-1.91986, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:position")
+tracks/1/path = NodePath("BodyMeshes/Head/Camera:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.2, 0.3)]
+"values": [Vector3(0.002, 0.478, 0.062)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR:rotation")
+tracks/2/path = NodePath(".:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.5708, -0.139626, 0.0349066)]
+"values": [Vector3(1.5, 1.5, 1.5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:rotation")
+tracks/3/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.5708, 0.139626, -0.0349066)]
+"values": [Vector3(-0.0349066, 0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR/ForearmR/WristJointR:rotation")
+tracks/4/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.837758, 0, -0.0349066)]
+"values": [Vector3(1.5708, 0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR:rotation")
+tracks/5/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.2, 1.2, 1.2)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.523599, -0.139626, 0.0349066)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.523599, 0.139626, -0.0349066)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0472, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0472, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.0472, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BodyMeshes:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/Neck/BaseOfHead/Head:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0751365, 0, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BodyCollision:shape:height")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.44]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BodyCollision:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.225, 0.074)]
+}
+
+[sub_resource type="Animation" id="Animation_vysn6"]
+resource_name = "crouch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, -0.139626, 0.0349066)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5708, 0.139626, -0.0349066)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR/ForearmR/WristJointR:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.837758, 0, -0.0349066)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.91986, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -163,79 +388,79 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR:rotation")
+tracks/6/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.91986, 0, 0)]
+"values": [Vector3(-0.0872665, 0.20944, -0.20944)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:rotation")
+tracks/7/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.0872665, 0.20944, -0.20944)]
+"values": [Vector3(-0.0872665, -0.20944, 0.20944)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR:rotation")
+tracks/8/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.0872665, -0.20944, 0.20944)]
+"values": [Vector3(-1, 1, 1)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:scale")
+tracks/9/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1, 1, 1)]
+"values": [Vector3(-0.523599, 0, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
+tracks/10/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR/ForearmR/WristJointR:rotation")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.523599, 0, 0)]
+"values": [Vector3(0.837758, 0, 0)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR/ForearmR/WristJointR:rotation")
+tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.837758, 0, 0)]
+"values": [Vector3(1.39626, 0, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
+tracks/12/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -247,18 +472,246 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
+tracks/13/path = NodePath("BodyMeshes/Head/Camera:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.39626, 0, 0)]
+"values": [Vector3(0.002, 0.09, -0.06)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/Neck/BaseOfHead/Head:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.349066, 0, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BodyCollision:shape:height")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.99]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BodyCollision:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.225, 0.074)]
 }
 
 [sub_resource type="Animation" id="Animation_rehxu"]
 resource_name = "fall"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.261799, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.785398, 0, 0.785398)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.785398, 0, -0.785398)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.2, 1.2, 1.2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.22173, -0.139626, 0.349066)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.22173, 0.139626, -0.349066)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0472, 0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0472, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR:rotation")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR:rotation")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BodyMeshes:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BodyMeshes/Head/Camera:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.002, 0.478, 0.062)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BodyCollision:shape:height")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.44]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BodyCollision:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.017, 0.074)]
+}
 
 [sub_resource type="Animation" id="Animation_ei50w"]
 resource_name = "idle"
@@ -421,42 +874,260 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("BodyMeshes/Head/Camera3D:position")
+tracks/13/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
 tracks/13/interp = 2
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.002, 0.478, 0.062)]
+"values": [Vector3(-0.0349066, 0, 0)]
 }
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
-tracks/14/interp = 2
+tracks/14/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:position")
+tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.0349066, 0, 0)]
+"values": [Vector3(0, 0.1, 0)]
 }
 tracks/15/type = "value"
 tracks/15/imported = false
 tracks/15/enabled = true
-tracks/15/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:position")
+tracks/15/path = NodePath("BodyMeshes/Head/Camera:position")
 tracks/15/interp = 1
 tracks/15/loop_wrap = true
 tracks/15/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.1, 0.3)]
+"values": [Vector3(0.002, 0.478, 0.062)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BodyCollision:shape:height")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.44]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("BodyCollision:position")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.017, 0.074)]
 }
 
-[sub_resource type="Animation" id="Animation_d021l"]
-resource_name = "jump"
+[sub_resource type="Animation" id="Animation_jq1oa"]
+resource_name = "run"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.0472, 0, -0.0872665), Vector3(0, 0, 0), Vector3(-1.0472, 0, -0.0872665)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BodyMeshes:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.05, 0), Vector3(0, -0.01, 0), Vector3(0, 0.05, 0), Vector3(0, -0.01, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.0472, 0, 0.0872665), Vector3(0, 0, 0), Vector3(1.0472, 0, 0.0872665)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -0.139626, 0.0349066), Vector3(-0.523599, -0.139626, 0.0349066), Vector3(0, -0.139626, 0.0349066), Vector3(1.0472, -0.139626, 0.0349066)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.8, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.139626, -0.0349066), Vector3(1.0472, 0.139626, -0.0349066), Vector3(0, 0.139626, -0.0349066), Vector3(-0.523599, 0.139626, -0.0349066)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.65806, 0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.3, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.65806, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR/ForearmR/WristJointR:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.349066, 0, 0), Vector3(0, -2.98023e-08, -6.51926e-08)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR/ForearmR/WristJointR:rotation")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.2, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.0349066), Vector3(0.349066, 0, -0.0349066)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.698132, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.698132, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.174533, 0, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BodyMeshes/Head/Camera:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.002, 0.478, -0.062)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BodyCollision:shape:height")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.44]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BodyCollision:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.017, 0.074)]
+}
 
 [sub_resource type="Animation" id="Animation_cq4wc"]
 resource_name = "sneak"
@@ -472,7 +1143,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.2, 0.3)]
+"values": [Vector3(0, -0.2, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -496,7 +1167,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.4, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.0872665, -0.20944, 0.20944), Vector3(-0.785398, -0.20944, 0.20944), Vector3(0.436332, -0.20944, 0.20944)]
+"values": [Vector3(-0.0872665, -0.20944, 0.20944), Vector3(-0.785398, -0.20944, 0.20944), Vector3(0.0872665, -0.20944, 0.20944)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -520,7 +1191,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.4, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.0872665, 0.20944, -0.20944), Vector3(0.436332, 0.20944, -0.20944), Vector3(-0.785398, 0.20944, -0.20944)]
+"values": [Vector3(-0.0872665, 0.20944, -0.20944), Vector3(0.0872665, 0.20944, -0.20944), Vector3(-0.785398, 0.20944, -0.20944)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -597,38 +1268,74 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("BodyMeshes/Head/Camera3D:position")
+tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
 tracks/11/interp = 2
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.002, 0.09, 0.062)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "times": PackedFloat32Array(0.3, 0.7, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector3(1.74533, 0, 0), Vector3(1.74533, 0, 0), Vector3(1.39626, 0, 0)]
 }
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("BodyMeshes:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("BodyMeshes:position")
+tracks/12/interp = 2
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -0.036, 0), Vector3(0, -0.0758843, 0), Vector3(0, -0.036, 0), Vector3(0, -0.0758843, 0)]
+"values": [Vector3(0, -0.03, 0), Vector3(0, -0.07, 0), Vector3(0, -0.03, 0), Vector3(0, -0.07, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BodyMeshes/Head/Camera:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.002, 0.09, -0.06)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/Neck/BaseOfHead/Head:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.349066, 0, 0)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BodyCollision:shape:height")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.99]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("BodyCollision:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.225, 0.074)]
 }
 
 [sub_resource type="Animation" id="Animation_prwmk"]
@@ -765,24 +1472,24 @@ tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.1, 0.3)]
+"values": [Vector3(0, 0.1, 0)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("BodyMeshes/Head/Camera3D:position")
+tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.002, 0.478, 0.062)]
+"values": [Vector3(0.349066, 0, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
+tracks/12/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
@@ -794,214 +1501,233 @@ tracks/12/keys = {
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
+tracks/13/path = NodePath("BodyMeshes/Head/Camera:position")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.349066, 0, 0)]
+"values": [Vector3(0.002, 0.478, 0.062)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BodyCollision:shape:height")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.44]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BodyCollision:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.017, 0.074)]
 }
 
-[sub_resource type="Animation" id="Animation_jq1oa"]
-resource_name = "run"
-length = 1.6
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_mnb7q"]
+resource_name = "jump"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR:rotation")
+tracks/0/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.0472, 0, -0.0872665), Vector3(0, 0, 0), Vector3(-1.0472, 0, -0.0872665)]
+"values": [Vector3(0, 0.1, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BodyMeshes:position")
+tracks/1/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, -0.1, 0), Vector3(0, 0, 0), Vector3(0, -0.0904146, 0)]
+"values": [Vector3(-0.0349066, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:rotation")
+tracks/2/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR:rotation")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 0.4, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.0472, 0, 0.0872665), Vector3(0, 0, 0), Vector3(1.0472, 0, 0.0872665)]
+"values": [Vector3(2.0944, 0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR:rotation")
+tracks/3/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:scale")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.8, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -0.139626, 0.0349066), Vector3(-0.523599, -0.139626, 0.0349066), Vector3(0, -0.139626, 0.0349066), Vector3(1.0472, -0.139626, 0.0349066)]
+"values": [Vector3(-1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:rotation")
+tracks/4/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:scale")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.8, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.139626, -0.0349066), Vector3(1.0472, 0.139626, -0.0349066), Vector3(0, 0.139626, -0.0349066), Vector3(-0.523599, 0.139626, -0.0349066)]
+"values": [Vector3(-1.2, 1.2, 1.2)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR:rotation")
+tracks/5/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL:rotation")
 tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.174533, 0, 0), Vector3(-1.22173, 0, 0), Vector3(-1.22173, 0, 0)]
+"values": [Vector3(1.22173, 0.139626, -0.349066)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR:rotation")
+tracks/6/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.2, 0.8, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.22173, 0, 0), Vector3(-0.174533, 0, 0), Vector3(-1.22173, 0, 0)]
+"values": [Vector3(1.0472, 0, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR/ForearmR/WristJointR:rotation")
+tracks/7/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.2, 0.9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.349066, 0, 0), Vector3(0, -2.98023e-08, -6.51926e-08)]
+"values": [Vector3(1.0472, 0, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR/ForearmR/WristJointR:rotation")
+tracks/8/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR:rotation")
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0.2, 0.9),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, -0.0349066), Vector3(0.349066, 0, -0.0349066)]
+"values": [Vector3(-1.5708, 0, 0)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR:rotation")
-tracks/9/interp = 1
+tracks/9/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL:rotation")
+tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.698132, 0, 0)]
+"values": [Vector3(1.74533, 0, 0)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR:rotation")
-tracks/10/interp = 1
+tracks/10/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR:rotation")
+tracks/10/interp = 2
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0.698132, 0, 0)]
+"values": [Vector3(0, -0.139626, 0.349066)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:position")
-tracks/11/interp = 1
+tracks/11/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR:rotation")
+tracks/11/interp = 2
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0.3)]
+"values": [Vector3(-1.5708, 0, 0)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("BodyMeshes/Head/Body/TorsoMesh:rotation")
+tracks/12/path = NodePath("BodyMeshes/Head/Camera:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.174533, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_vrsqv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.1, 1.1, 1.1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BodyMeshes/Head/Camera3D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Vector3(0.002, 0.478, 0.062)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("BodyMeshes:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.91986, 0, 0)]
+"values": [Vector3(0, 0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("BodyCollision:shape:height")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.44]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("BodyCollision:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.017, 0.074)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i14f5"]
@@ -1010,14 +1736,14 @@ _data = {
 "crouch": SubResource("Animation_vysn6"),
 "fall": SubResource("Animation_rehxu"),
 "idle": SubResource("Animation_ei50w"),
-"jump": SubResource("Animation_d021l"),
+"jump": SubResource("Animation_mnb7q"),
 "run": SubResource("Animation_jq1oa"),
 "sneak": SubResource("Animation_cq4wc"),
 "walk": SubResource("Animation_prwmk")
 }
 
 [node name="player" type="CharacterBody3D"]
-transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 wall_min_slide_angle = 0.0
 script = ExtResource("1_2ieie")
 
@@ -1036,31 +1762,33 @@ grow_vertical = 0
 horizontal_alignment = 2
 
 [node name="BodyCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0.074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225, 0.074)
 shape = SubResource("CapsuleShape3D_edq6b")
 
 [node name="FootCast" type="ShapeCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.074)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137484, 0.074)
 shape = SubResource("SphereShape3D_y670u")
 target_position = Vector3(0, -0.55, 0)
 
 [node name="BodyMeshes" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0746673, 0)
 
 [node name="Head" type="Node3D" parent="BodyMeshes"]
 
-[node name="Camera3D" type="Camera3D" parent="BodyMeshes/Head"]
-transform = Transform3D(0.769231, 0, 0, 0, 0.769231, 0, 0, 0, 0.769231, 0.002, 0.478, 0.062)
+[node name="Camera" type="Node3D" parent="BodyMeshes/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.002, 0.478, 0.062)
+
+[node name="Camera3D" type="Camera3D" parent="BodyMeshes/Head/Camera"]
+transform = Transform3D(0.909091, 0, 0, 0, 0.887788, 0.195648, 0, -0.195648, 0.887788, 0.364866, 0.33564, 1.4342)
 
 [node name="Body" type="Node3D" parent="BodyMeshes/Head"]
 
 [node name="TorsoMesh" type="MeshInstance3D" parent="BodyMeshes/Head/Body"]
-transform = Transform3D(1, 0, 0, 0, 0.866026, 0.5, 0, -0.5, 0.866026, 0, -0.2, 0.3)
+transform = Transform3D(1, 0, 0, 0, 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0.1, 0)
 mesh = SubResource("BoxMesh_3akj7")
 skeleton = NodePath("../../..")
 
 [node name="ShoulderJointR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh"]
-transform = Transform3D(0.938147, -0.290994, -0.187622, 0.187622, 0.882691, -0.430875, 0.290995, 0.369022, 0.882691, 0.167876, 0.143504, 0.0125446)
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, -0.999999, 0, 0.999999, -3.61999e-06, 0.167876, 0.143504, 0.0125446)
 mesh = SubResource("SphereMesh_d7082")
 
 [node name="UpperArmR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR"]
@@ -1068,7 +1796,7 @@ transform = Transform3D(0.942859, -0.331869, 0.0296658, 0.320165, 0.927052, 0.19
 mesh = SubResource("CapsuleMesh_bijq0")
 
 [node name="ElbowJointR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR"]
-transform = Transform3D(1, 0, 0, 0, -0.181207, -0.983445, 0, 0.983446, -0.181207, 0.00158042, -0.116199, -0.000849456)
+transform = Transform3D(1, 0, 0, 0, 0.499998, -0.866027, 0, 0.866027, 0.499998, 0.00158042, -0.116199, -0.000849456)
 mesh = SubResource("SphereMesh_p3rnd")
 
 [node name="ForearmR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/ShoulderJointR/UpperArmR/ElbowJointR"]
@@ -1084,7 +1812,7 @@ transform = Transform3D(0.0174525, 0.999848, 1.78814e-07, -0.999847, 0.0174524, 
 mesh = SubResource("CylinderMesh_q6k1j")
 
 [node name="ShoulderJointL" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh"]
-transform = Transform3D(-0.98777, 0.057539, 0.144915, 0.144915, 0.68177, 0.71707, 0.057539, -0.7293, 0.68177, -0.168, 0.144, 0.013)
+transform = Transform3D(-1, 0, 0, 0, -3.61999e-06, -1, 0, 1, -3.61999e-06, -0.168, 0.144, 0.013)
 mesh = SubResource("SphereMesh_d7082")
 
 [node name="UpperArmR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL"]
@@ -1092,7 +1820,7 @@ transform = Transform3D(0.942859, -0.331869, 0.0296658, 0.320165, 0.927052, 0.19
 mesh = SubResource("CapsuleMesh_bijq0")
 
 [node name="ElbowJointR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR"]
-transform = Transform3D(1, 0, 0, 0, 0.130381, -0.991464, 0, 0.991465, 0.130381, 0.00158042, -0.116199, -0.000849485)
+transform = Transform3D(1, 0, 0, 0, 0.499998, -0.866027, 0, 0.866027, 0.499998, 0.00158042, -0.116199, -0.000849485)
 mesh = SubResource("SphereMesh_p3rnd")
 
 [node name="ForearmR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/ShoulderJointL/UpperArmR/ElbowJointR"]
@@ -1108,7 +1836,7 @@ transform = Transform3D(0.0174525, 0.999848, 1.78814e-07, -0.999847, 0.0174524, 
 mesh = SubResource("CylinderMesh_q6k1j")
 
 [node name="HipJointR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh"]
-transform = Transform3D(1.18565, -0.0971485, -0.157442, 0.0394806, 1.13058, -0.400297, 0.18074, 0.390331, 1.12026, 0.0708899, -0.208504, -0.0182521)
+transform = Transform3D(1.18469, -0.124925, -0.144633, 0.0362688, 1.0386, -0.600001, 0.187643, 0.587972, 1.02912, 0.0708899, -0.208504, -0.0182521)
 mesh = SubResource("SphereMesh_scfp1")
 
 [node name="UpperArmR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/HipJointR"]
@@ -1116,7 +1844,7 @@ transform = Transform3D(1, 0, 0, 0, 0.983573, -0.180519, 0, 0.18052, 0.983572, 0
 mesh = SubResource("CapsuleMesh_8x88f")
 
 [node name="ElbowJointR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR"]
-transform = Transform3D(1, 0, 0, 0, -0.34202, 0.939693, 0, -0.939693, -0.34202, 0.00158042, -0.116199, -0.000849456)
+transform = Transform3D(1, 0, 0, 0, -0.342018, 0.939694, 0, -0.939694, -0.342018, 0.00158042, -0.116199, -0.000849456)
 mesh = SubResource("SphereMesh_ynmfk")
 
 [node name="ForearmR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/HipJointR/UpperArmR/ElbowJointR"]
@@ -1132,7 +1860,7 @@ transform = Transform3D(0.5, -4.65661e-10, 0, -9.31323e-10, 1, -3.35276e-08, 0, 
 mesh = SubResource("CylinderMesh_ycr0q")
 
 [node name="HipJointL" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh"]
-transform = Transform3D(-1.18186, 0.205789, -0.0293001, -0.00734738, -0.210401, -1.18139, 0.207735, 1.16335, -0.208481, -0.071, -0.209, -0.018)
+transform = Transform3D(-1.18468, 0.124925, 0.144633, 0.0362686, 1.0386, -0.6, 0.187642, 0.587971, 1.02912, -0.071, -0.209, -0.018)
 mesh = SubResource("SphereMesh_scfp1")
 
 [node name="UpperArmR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/HipJointL"]
@@ -1140,7 +1868,7 @@ transform = Transform3D(1, 0, 0, 0, 0.983573, -0.180519, 0, 0.18052, 0.983572, 0
 mesh = SubResource("CapsuleMesh_8x88f")
 
 [node name="ElbowJointR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR"]
-transform = Transform3D(1, 0, 0, 0, 0.648485, 0.761228, 0, -0.761228, 0.648485, 0.00158042, -0.116199, -0.000849456)
+transform = Transform3D(1, 0, 0, 0, 0.499998, 0.866027, 0, -0.866027, 0.499998, 0.00158042, -0.116199, -0.000849456)
 mesh = SubResource("SphereMesh_ynmfk")
 
 [node name="ForearmR" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/HipJointL/UpperArmR/ElbowJointR"]
@@ -1155,8 +1883,20 @@ mesh = SubResource("SphereMesh_5ogn5")
 transform = Transform3D(0.499695, -0.0348995, 0, 0.0174497, 0.999391, 0, 0, 0, 1, 0.005, -0.022, -0.03)
 mesh = SubResource("CylinderMesh_ycr0q")
 
+[node name="Neck" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh"]
+transform = Transform3D(1, 0, 0, 0, 0.993572, 0.113203, 0, -0.113203, 0.993572, 0, 0.239591, 0.000329949)
+mesh = SubResource("CapsuleMesh_0ut1a")
+
+[node name="BaseOfHead" type="Node3D" parent="BodyMeshes/Head/Body/TorsoMesh/Neck"]
+transform = Transform3D(1, 0, 0, 0, 1, -7.45058e-08, 0, 7.45058e-08, 1, 0, 0.00498104, 0.0278259)
+
+[node name="Head" type="MeshInstance3D" parent="BodyMeshes/Head/Body/TorsoMesh/Neck/BaseOfHead"]
+transform = Transform3D(1, 0, 0, 0, 0.997177, -0.0750657, 0, 0.0750657, 0.997177, 0, 0.091782, -0.0596794)
+mesh = SubResource("CapsuleMesh_cowub")
+skeleton = NodePath("../../..")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-playback_default_blend_time = 0.2
 libraries = {
 "": SubResource("AnimationLibrary_i14f5")
 }
+playback_default_blend_time = 0.3
