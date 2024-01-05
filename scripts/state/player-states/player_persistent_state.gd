@@ -2,16 +2,15 @@ extends CharacterBody3D
 
 class_name PlayerPersistentState
 
-@onready var body: Node3D = $FullBody/Head/Body
-@onready var head: Node3D = $FullBody/Head
-@onready var head_base: Node3D = $FullBody/Head/Body/TorsoMesh/Neck/BaseOfHead
-@onready var head_mesh: MeshInstance3D = $FullBody/Head/Body/TorsoMesh/Neck/BaseOfHead/Head
+@onready var body: Node3D = $FullBody/Body
+@onready var head_base: Node3D = $FullBody/Body/TorsoMesh/Neck/BaseOfHead
+@onready var head_mesh: MeshInstance3D = $FullBody/Body/TorsoMesh/Neck/BaseOfHead/Head
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var foot_cast: ShapeCast3D = $FootCast
-@onready var camera: Node3D = $FullBody/Head/Camera
-@onready var camera3d: Camera3D = $FullBody/Head/Camera/Camera3D
-@onready var camera_occlusion_raycast: RayCast3D = $FullBody/Head/Camera/RayCast3D
-@onready var state_log: Label = $CanvasLayer/StateLog
+@onready var camera: Node3D = $FullBody/Camera
+@onready var camera3d: Camera3D = $FullBody/Camera/Camera3D
+@onready var camera_occlusion_raycast: RayCast3D = $FullBody/Camera/RayCast3D
+@onready var state_log: Label = $CanvasLayer/Control/StateLog
 
 #state
 var state
