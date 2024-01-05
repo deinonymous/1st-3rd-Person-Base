@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="Antarctica"
-run/main_scene="res://scenes/world/world.tscn"
+config/name="1st/3rd Person Base"
+run/main_scene="res://scenes/world.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 
 [autoload]
@@ -20,8 +20,8 @@ Physics="*res://scripts/autoload/Physics.gd"
 
 [display]
 
-window/size/viewport_width=267
-window/size/viewport_height=150
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/size/mode=3
 window/size/borderless=true
 window/stretch/mode="viewport"

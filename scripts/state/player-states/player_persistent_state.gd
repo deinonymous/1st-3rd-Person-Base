@@ -2,15 +2,15 @@ extends CharacterBody3D
 
 class_name PlayerPersistentState
 
-@onready var body: Node3D = $BodyMeshes/Head/Body
-@onready var head: Node3D = $BodyMeshes/Head
-@onready var head_base: Node3D = $BodyMeshes/Head/Body/TorsoMesh/Neck/BaseOfHead
-@onready var head_mesh: MeshInstance3D = $BodyMeshes/Head/Body/TorsoMesh/Neck/BaseOfHead/Head
+@onready var body: Node3D = $FullBody/Head/Body
+@onready var head: Node3D = $FullBody/Head
+@onready var head_base: Node3D = $FullBody/Head/Body/TorsoMesh/Neck/BaseOfHead
+@onready var head_mesh: MeshInstance3D = $FullBody/Head/Body/TorsoMesh/Neck/BaseOfHead/Head
 @onready var animation: AnimationPlayer = $AnimationPlayer
 @onready var foot_cast: ShapeCast3D = $FootCast
-@onready var camera: Node3D = $BodyMeshes/Head/Camera
-@onready var camera3d: Camera3D = $BodyMeshes/Head/Camera/Camera3D
-@onready var camera_occlusion_raycast: RayCast3D = $BodyMeshes/Head/Camera/RayCast3D
+@onready var camera: Node3D = $FullBody/Head/Camera
+@onready var camera3d: Camera3D = $FullBody/Head/Camera/Camera3D
+@onready var camera_occlusion_raycast: RayCast3D = $FullBody/Head/Camera/RayCast3D
 @onready var state_log: Label = $CanvasLayer/StateLog
 
 #state
@@ -41,8 +41,8 @@ func _unhandled_input(event):
   #handle camera rotation
 
   if event is InputEventMouseMotion:
-    camera.rotation.y -= event.relative.x/40
-    camera.rotation.x = clampf(camera.rotation.x - event.relative.y/40, deg_to_rad(-60), deg_to_rad(60))
+    camera.rotation.y -= event.relative.x/400
+    camera.rotation.x = clampf(camera.rotation.x - event.relative.y/400, deg_to_rad(-60), deg_to_rad(60))
     head_base.rotation.x = camera.rotation.x / 2
   if camera.rotation.y - body.rotation.y > 2 * PI:
     camera.rotation.y -= 2 * PI
