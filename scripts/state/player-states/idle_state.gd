@@ -18,6 +18,7 @@ func fall():
 
 func idle():
   persistent_state.velocity *= 0.4
+  persistent_state.face_camera_direction()
 
 func jump():
   change_state.call("jump")

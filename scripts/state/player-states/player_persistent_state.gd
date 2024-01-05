@@ -10,6 +10,7 @@ class_name PlayerPersistentState
 @onready var foot_cast: ShapeCast3D = $FootCast
 @onready var camera: Node3D = $BodyMeshes/Head/Camera
 @onready var camera3d: Camera3D = $BodyMeshes/Head/Camera/Camera3D
+@onready var camera_occlusion_raycast: RayCast3D = $BodyMeshes/Head/Camera/RayCast3D
 @onready var state_log: Label = $CanvasLayer/StateLog
 
 #state
@@ -27,10 +28,14 @@ var jump_velocity = 0.17
 var input_direction: Vector2 = Vector2(0,0)
 var direction: Vector2 = Vector2(0,0)
 
+#camera
+var camera_target_position: Vector3
+
 func _ready():
   Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
   state_factory = StateFactory.new()
   change_state("idle")
+  camera_target_position = camera3d.position
 
 func _unhandled_input(event):
   #handle camera rotation
@@ -39,27 +44,37 @@ func _unhandled_input(event):
     camera.rotation.y -= event.relative.x/40
     camera.rotation.x = clampf(camera.rotation.x - event.relative.y/40, deg_to_rad(-60), deg_to_rad(60))
     head_base.rotation.x = camera.rotation.x / 2
+  if camera.rotation.y - body.rotation.y > 2 * PI:
+    camera.rotation.y -= 2 * PI
+  elif camera.rotation.y - body.rotation.y < -2 * PI:
+    camera.rotation.y += 2 * PI
 
 func _process(_delta):
+
+  #allow a new state to be elected
   state_elected = false
-  handle_input()
+
+  #player always enters fall state if not on the ground
+  if !foot_cast.get_collision_count() and velocity.y <= 0:
+    state.do_state("fall")
+
+  #handle player inputs
+  handle_movement()
+  handle_camera_zoom()
+
+  #player always idles if no state elected
+  state.do_state("idle")
 
 func _physics_process(_delta):
   move_and_collide(velocity)
   move_and_slide()
 
-func handle_input():
+func handle_movement():
   #determine which states to attempt to transition to, according to player input
 
   #determine if player is trying to move f/b/l/r
   input_direction = Input.get_vector("mv_left", "mv_right", "mv_forward", "mv_backward")
   direction = input_direction.rotated(-camera.rotation.y)
-
-  handle_camera_zoom()
-
-  #fall if not on the ground
-  if !foot_cast.get_collision_count() and velocity.y <= 0:
-    state.do_state("fall")
 
   #handle jump
   if Input.is_action_just_pressed("jump") or state is JumpState:
@@ -76,9 +91,6 @@ func handle_input():
     if Input.is_action_pressed("sprint") and input_direction.y < 0:
       state.do_state("run")
     state.do_state("walk")
-
-  #otherwise, player is idle
-  state.do_state("idle")
 
 func change_state(new_state_name):
   #set the new state by name
@@ -100,33 +112,49 @@ func change_state(new_state_name):
   add_child(state)
 
 func face_movement_direction():
-  if input_direction.y > 0:
+  #point the body towards the input/movement direction
+
+  if input_direction.y > 0:     #point the body opposite of the movement direction if moving backward (to "backpedal")
     body.rotation.y = clampf(camera.rotation.y-Vector2(0,-1).angle_to(-input_direction), body.rotation.y - 0.1, body.rotation.y + 0.1)
-  else:
+  else:                         #point the body in the direction of the movement if moving forward
     body.rotation.y = clampf(camera.rotation.y-Vector2(0,-1).angle_to(input_direction), body.rotation.y - 0.1, body.rotation.y + 0.1)
-  head_base.rotation.y = (camera.rotation.y - body.rotation.y) / 2.0
+  head_base.rotation.y = clampf((camera.rotation.y - body.rotation.y) / 2.0, head_base.rotation.y - 0.05, head_base.rotation.y + 0.05)
 
 func face_camera_direction():
-  if camera3d.position.z >= 0.4:
-    body.rotation.y = clampf(camera.rotation.y, body.rotation.y - 0.1, body.rotation.y + 0.1)
-  else:
+  #point the body loosely towards the camera direction
+
+  if camera3d.position.z < 0.4:     #force body to rotate somewhat with the player
     body.rotation.y = clampf(body.rotation.y, camera.rotation.y - PI/4, camera.rotation.y + PI/4)
-  head_base.rotation.y = (camera.rotation.y - body.rotation.y) / 4.0
 
 func handle_camera_zoom():
-  var camera_zoom_input = -float(int(Input.is_action_just_released("camera_zoom_in")))/5.0 + float(int(Input.is_action_just_released("camera_zoom_out")))/5.0
+  #set camera position based on zoom
+
+  #set initial camera target position based on input
+  var camera_zoom_input = float(
+    int(Input.is_action_just_released("camera_zoom_out")) \
+    -int(Input.is_action_just_released("camera_zoom_in"))
+  ) / 5.0
   if camera_zoom_input:
-    camera3d.position.z = clampf(camera3d.position.z + camera_zoom_input, -0.20, 2.5)
-  if camera3d.position.z < 0.4:
+    camera_target_position.z = clampf(camera3d.position.z + camera_zoom_input, -0.20, 2.5)
+
+  #handle switching 1st/3rd person
+  if camera_target_position.z < 0.4:      #within 1st person threshold
     if Input.is_action_just_released("camera_zoom_in"):
-      camera3d.position = Vector3(0.0, 0.2, -0.1)
+      camera_target_position = Vector3(0.0, 0.2, -0.1)
       var material: Material = head_mesh.get_active_material(0)
       material.albedo_color.a = 0.0
     elif Input.is_action_just_released("camera_zoom_out"):
       var material: Material = head_mesh.get_active_material(0)
       material.albedo_color.a = 1.0
-      camera3d.position.z = 0.4
-      head_mesh.set_visible(true)
+      camera_target_position.z = 0.4
+  else:                                   #within 3rd person threshold
+    camera_target_position.x = 0.365
+    camera_target_position.y = clampf((0.5 + camera3d.position.y + camera_zoom_input)/10, 0.3, 3.5)
+
+  #handle camera occluders
+  camera_occlusion_raycast.target_position = camera_target_position
+  if camera_occlusion_raycast.get_collider() != null:
+    camera3d.global_position = camera_occlusion_raycast.get_collision_point()
+    camera3d.position *= 0.75
   else:
-    camera3d.position.x = 0.365
-    camera3d.position.y = clampf((0.5 + camera3d.position.y + camera_zoom_input)/10, 0.3, 3.5)
+    camera3d.position = camera_target_position

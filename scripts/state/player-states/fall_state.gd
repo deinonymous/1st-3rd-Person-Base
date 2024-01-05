@@ -10,6 +10,7 @@ func _ready():
 
 func fall():
   persistent_state.velocity.y -= Physics.gravity
+  persistent_state.face_camera_direction()
 
 func jump():
   if grounded():

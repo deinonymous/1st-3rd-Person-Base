@@ -13,6 +13,7 @@ func walk():
 
 func crouch():
   persistent_state.velocity *= 0.2
+  persistent_state.face_camera_direction()
 
 func sneak():
   change_state.call("sneak")
