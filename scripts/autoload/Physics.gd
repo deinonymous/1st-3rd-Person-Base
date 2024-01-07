@@ -1,3 +1,3 @@
 extends Node
 
-var gravity: float = 0.008
+var gravity: float = 0.32

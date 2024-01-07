@@ -4,7 +4,7 @@ class_name FallState
 var classname = "FallState"
 
 func _ready():
-  persistent_state.animation.speed_scale = 1
+  persistent_state.animation.speed_scale = 1.0
   persistent_state.animation.play("fall")
   fall()
 
@@ -13,28 +13,25 @@ func fall():
   persistent_state.face_camera_direction()
 
 func jump():
-  if grounded():
+  if persistent_state.is_on_floor():
     change_state.call("jump")
 
 func walk():
-  if grounded():
+  if persistent_state.is_on_floor():
     change_state.call("walk")
 
 func run():
-  if grounded():
+  if persistent_state.is_on_floor():
     change_state.call("run")
 
 func idle():
-  if grounded():
+  if persistent_state.is_on_floor():
     change_state.call("idle")
 
 func sneak():
-  if grounded():
+  if persistent_state.is_on_floor():
     change_state.call("sneak")
 
 func crouch():
-  if grounded():
+  if persistent_state.is_on_floor():
     change_state.call("crouch")
-
-func grounded():
-  return persistent_state.foot_cast.get_collision_count() > 0

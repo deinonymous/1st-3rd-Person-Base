@@ -25,7 +25,7 @@ func jump():
     persistent_state.velocity.x /= 1.2
     persistent_state.velocity.z /= 1.2
   persistent_state.velocity.y -= Physics.gravity
-  if persistent_state.velocity.y <= 0:
+  if not persistent_state.velocity.y > 0:
     fall()
   persistent_state.face_movement_direction()
 

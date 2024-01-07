@@ -6,11 +6,9 @@ class_name PlayerPersistentState
 @onready var head_base: Node3D = $FullBody/Body/TorsoMesh/Neck/BaseOfHead
 @onready var head_mesh: MeshInstance3D = $FullBody/Body/TorsoMesh/Neck/BaseOfHead/Head
 @onready var animation: AnimationPlayer = $AnimationPlayer
-@onready var foot_cast: ShapeCast3D = $FootCast
 @onready var camera: Node3D = $FullBody/Camera
 @onready var camera3d: Camera3D = $FullBody/Camera/Camera3D
 @onready var camera_occlusion_raycast: RayCast3D = $FullBody/Camera/RayCast3D
-@onready var state_log: Label = $CanvasLayer/Control/StateLog
 
 #state
 var state
@@ -19,11 +17,11 @@ var state_elected: bool
 
 #physics/motion
 var inertia = 0.7
-var run_speed = 0.1
-var walk_speed = 0.05
-var sneak_speed = 0.025
-var midair_correction_speed = 0.002
-var jump_velocity = 0.17
+var run_speed = 6
+var walk_speed = 4
+var sneak_speed = 2
+var midair_correction_speed = 0.2
+var jump_velocity = 8
 var input_direction: Vector2 = Vector2(0,0)
 var direction: Vector2 = Vector2(0,0)
 
@@ -54,7 +52,8 @@ func _process(_delta):
   state_elected = false
 
   #player always enters fall state if not on the ground
-  if !foot_cast.get_collision_count() and velocity.y <= 0:
+  if !is_on_floor() and not velocity.y > 0:
+    velocity.y -= Physics.gravity
     state.do_state("fall")
 
   #handle player inputs
@@ -65,7 +64,6 @@ func _process(_delta):
   state.do_state("idle")
 
 func _physics_process(_delta):
-  move_and_collide(velocity)
   move_and_slide()
 
 func handle_movement():
@@ -107,7 +105,6 @@ func change_state(new_state_name):
   #and modify the player's variables
   state.setup(func (state_string): change_state(state_string), self)
   state.name = "current_state"
-  state_log.text = new_state_name
   add_child(state)
 
 func face_movement_direction():

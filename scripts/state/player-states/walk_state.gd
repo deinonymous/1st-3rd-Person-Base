@@ -8,7 +8,7 @@ func _ready():
   walk()
 
 func walk():
-  persistent_state.animation.speed_scale = (-1 if persistent_state.input_direction.y > 0 else 1) * persistent_state.velocity.length() * 25
+  persistent_state.animation.speed_scale = (-1 if persistent_state.input_direction.y > 0 else 1) * persistent_state.velocity.length() / 3
   persistent_state.velocity.x = clampf(
     persistent_state.direction.x * persistent_state.walk_speed,
     persistent_state.velocity.x - (0.1 + abs(persistent_state.direction.x * persistent_state.walk_speed / 10)),
