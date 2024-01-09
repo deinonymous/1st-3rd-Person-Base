@@ -33,6 +33,7 @@ func _ready():
   state_factory = StateFactory.new()
   change_state("idle")
   camera_target_position = camera3d.position
+  camera_occlusion_raycast.add_exception(self)
 
 func _unhandled_input(event):
   #handle camera rotation
